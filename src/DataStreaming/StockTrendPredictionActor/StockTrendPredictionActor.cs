@@ -25,6 +25,10 @@ namespace StockTrendPredictionActor
         private IActorTimer notificationTimer;
         private IAzureMlClient mlClient;
 
+        public StockTrendPredictionActor(ActorService actorService, ActorId actorId)
+            : base(actorService, actorId)
+        { }
+
         public async Task ProcessPurchasesAsync(List<ProductPurchase> orders)
         {
             Logger.Debug("{0}: {1} orders", nameof(this.ProcessPurchasesAsync), orders?.Count);

@@ -10,12 +10,17 @@ namespace StockTrendPredictionActor
     using Common.Logging;
     using Common.Model;
     using global::StockTrendPredictionActor.Interfaces;
+    using Microsoft.ServiceFabric.Actors;
     using Microsoft.ServiceFabric.Actors.Runtime;
 
     [StatePersistence(StatePersistence.None)]
     public class NotificationActor : Actor, INotificationActor
     {
         private static readonly ILogger Logger = LoggerFactory.GetLogger(nameof(NotificationActor));
+
+        public NotificationActor(ActorService actorService, ActorId actorId)
+            : base(actorService, actorId)
+        { }
 
         public Task NotifyLowStockProducts(List<ProductStockPrediction> productStocks)
         {
