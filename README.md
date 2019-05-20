@@ -3,6 +3,7 @@ services: service-fabric
 platforms: dotnet
 author: stascode
 ---
+# This sample is deprecated #
 
 # Service Fabric Predictive Backend Sample  #
 
